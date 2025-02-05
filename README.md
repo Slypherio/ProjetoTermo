@@ -15,7 +15,7 @@ você deve escrever uma palavra que também tenha 5 letras e o jogo te retornar�
 
 VERDE - A letra está no local correto.
 
-AMARELO - A letra está na palavra mas no local errado.]
+AMARELO - A letra está na palavra mas no local errado.
 
 CINZA - A letra não está na palavra.
 

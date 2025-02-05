@@ -15,8 +15,8 @@ int palavra_valida(char* palavra) {
 // Função para gerar a palavra secreta aleatória a partir de um banco de palavras
 char* gerar_palavra_secreta() {
     static const char* palavras[NUM_PALAVRAS] = {
-        "cachorro", "cavalo", "amigos", "bloco", "carro", 
-        "lazer", "mundo", "tempo", "futuro", "muito"
+        "cacho", "canto", "amigo", "bloco", "carro", 
+        "lazer", "mundo", "tempo", "fugir", "muito"
     };
     return (char*) palavras[rand() % NUM_PALAVRAS];
 }
@@ -36,6 +36,8 @@ void dar_feedback(char* tentativa, char* palavra_secreta) {
 }
 
 int main() {
+int tentativa_num;
+
     // Inicializando o gerador de números aleatórios
     srand(time(NULL));
 
@@ -46,7 +48,7 @@ int main() {
     printf("Bem-vindo ao jogo Termo!\n");
     printf("Você tem %d tentativas para acertar a palavra secreta.\n", NUM_TENTATIVAS);
 
-    for (int tentativa_num = 0; tentativa_num < NUM_TENTATIVAS; tentativa_num++) {
+    for (tentativa_num = 0; tentativa_num < NUM_TENTATIVAS; tentativa_num++) {
         printf("Tentativa %d: ", tentativa_num + 1);
         scanf("%s", tentativa);
 

@@ -1,0 +1,71 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+#define NUM_TENTATIVAS 6
+#define TAM_PALAVRA 5
+#define NUM_PALAVRAS 10
+
+// Função para verificar se a palavra é válida (se tem 5 letras)
+int palavra_valida(char* palavra) {
+    return strlen(palavra) == TAM_PALAVRA;
+}
+
+// Função para gerar a palavra secreta aleatória a partir de um banco de palavras
+char* gerar_palavra_secreta() {
+    static const char* palavras[NUM_PALAVRAS] = {
+        "cachorro", "cavalo", "amigos", "bloco", "carro", 
+        "lazer", "mundo", "tempo", "futuro", "muito"
+    };
+    return (char*) palavras[rand() % NUM_PALAVRAS];
+}
+
+// Função para dar o feedback de cada tentativa
+void dar_feedback(char* tentativa, char* palavra_secreta) {
+    for (int i = 0; i < TAM_PALAVRA; i++) {
+        if (tentativa[i] == palavra_secreta[i]) {
+            printf("%c", tentativa[i]);  // Letra correta e no lugar certo (verde)
+        } else if (strchr(palavra_secreta, tentativa[i]) != NULL) {
+            printf("%c", tentativa[i]);  // Letra correta, mas no lugar errado (amarela)
+        } else {
+            printf("_");  // Letra errada (cinza)
+        }
+    }
+    printf("\n");
+}
+
+int main() {
+    // Inicializando o gerador de números aleatórios
+    srand(time(NULL));
+
+    // Gerar a palavra secreta
+    char* palavra_secreta = gerar_palavra_secreta();
+    char tentativa[TAM_PALAVRA + 1];  // +1 para o caractere nulo '\0'
+
+    printf("Bem-vindo ao jogo Termo!\n");
+    printf("Você tem %d tentativas para acertar a palavra secreta.\n", NUM_TENTATIVAS);
+
+    for (int tentativa_num = 0; tentativa_num < NUM_TENTATIVAS; tentativa_num++) {
+        printf("Tentativa %d: ", tentativa_num + 1);
+        scanf("%s", tentativa);
+
+        // Verificar se a palavra tem 5 letras
+        if (!palavra_valida(tentativa)) {
+            printf("Palavra inválida! A palavra deve ter exatamente %d letras.\n", TAM_PALAVRA);
+            tentativa_num--;  // Decrementar para não contar como tentativa inválida
+            continue;
+        }
+
+        // Dar o feedback da tentativa
+        dar_feedback(tentativa, palavra_secreta);
+
+        // Verificar se acertou
+        if (strcmp(tentativa, palavra_secreta) == 0) {
+            printf("Parabéns! Você acertou a palavra secreta: %s\n", palavra_secreta);
+            break;
+        }
+    }
+
+    return 0;
+}

@@ -42,7 +42,7 @@ void verificar_tentativa(GtkWidget *widget, gpointer data) {
         if (tentativa[i] == jogo->palavra_secreta[i]) {
             feedback[i] = tentativa[i]; // Verde
         } else if (strchr(jogo->palavra_secreta, tentativa[i])) {
-            feedback[i] = '?'; // Amarelo (exemplo)
+            feedback[i] = '?'; // Amarelo
         } else {
             feedback[i] = '_'; // Cinza
         }

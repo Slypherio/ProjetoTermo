@@ -22,6 +22,7 @@ Windows
 MSYS2 com a biblioteca gtk e compilador gcc instalados.
 
 Comandos de configuração e instalação das bibliotecas e do compilador no MSYS2:
+
 (pacman -Syu;                 
 
 pacman -S mingw-w64-x86_64-gtk3;

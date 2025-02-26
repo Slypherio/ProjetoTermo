@@ -18,8 +18,8 @@ AMARELO - A letra está na palavra mas no local errado.
 CINZA - A letra não está na palavra.
 
 Pré-requisitos:
-Windows
-MSYS2 com a biblioteca gtk e compilador gcc instalados.
+Windows com
+MSYS2 possuindo a biblioteca gtk e compilador de C instalados.
 
 Comandos de configuração e instalação das bibliotecas e do compilador no MSYS2:
 

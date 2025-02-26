@@ -5,7 +5,8 @@ Um projeto recriando o jogo termo
 
 
 Objetivo: Recriar o jogo Termo
-jogo original: term.ooo
+
+jogo original: term.ooo  (site)
 
   O jogo funciona de modo semelhante ao conhecido Termo
 você terá 6 tentativas para acertar a palavra contendo 5 letras que foi escolhida aleatoriamente sempre que o jogo for iniciado,
